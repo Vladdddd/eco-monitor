@@ -1,0 +1,19 @@
+{
+  "name": "eco-monitor",
+  "version": "1.0.0",
+  "description": "1. Завантажити Node.js\r https://nodejs.org/en\r 2. Завантажити репозиторій з кодом backend частини застосунку\r 3. Запустити застосунок за допомогою команди \r ```shell\r cd /path/to/project\r npm run dev\r ```\r 4. Endpoints\r #### get all\r http://localhost:4444/objects (method get) - отримати всі об’єкти\r http://localhost:4444/addresses (method get) - отримати всі адреси\r http://localhost:4444/types (method get) - отримати всі типи\r http://localhost:4444/indicators (method get) - отримати всі індикатори\r #### get one\r http://localhost:4444/objects/1 (method get) - отримати один об’єкт\r http://localhost:4444/addresses/1 (method get) - отримати одну адресу\r http://localhost:4444/types/1 (method get) - отримати один тип\r http://localhost:4444/indicators/1 (method get) - отримати один індикатор\r #### post one\r http://localhost:4444/objects (method post) - створити один об’єкт\r ```json\r body: {\r \t\"name\": \"String\", \r \t\"addressId\": \"ObjectId\"\r }\r ```\r http://localhost:4444/addresses (method post) - створити одну адресу\r ```json\r body: {\r \t\"city\": \"String\",\r \t\"street\": \"String\",\r \t\"longitude\": \"String\",\r \t\"latitude\": \"String\"\r }\r ```",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "mongoose": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
+}
