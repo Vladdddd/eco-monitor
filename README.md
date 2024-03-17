@@ -22,14 +22,14 @@ http://localhost:4444/indicators/1 (method get) - отримати один ін
 #### post one
 http://localhost:4444/objects (method post) - створити один об’єкт
 ```json
-body: {
+"body": {
 	"name": "String", 
 	"addressId": "ObjectId"
 }
 ```
 http://localhost:4444/addresses (method post) - створити одну адресу
 ```json
-body: {
+"body": {
 	"city": "String",
 	"street": "String",
 	"longitude": "String",
@@ -39,13 +39,13 @@ body: {
 
 http://localhost:4444/types (method post) - створити один тип
 ```json
-body: {
+"body": {
 	"name": "String"
 }
 ```
 http://localhost:4444/indicators (method post) - створити один індикатор
 ```json
-body: {
+"body": {
 	"name": "String",
 	"unit": "String",
 	"typeId": "ObjectId",
@@ -55,7 +55,7 @@ body: {
 #### update one 
 http://localhost:4444/indicators/1 (method patch) - змінити один індикатор
 ```json
-body: {
+"body": {
 	"name": "String",
 	"unit": "String",
 	"typeId": "ObjectId",
