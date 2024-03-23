@@ -50,3 +50,15 @@ export const create = async (req, res) => {
     });
   }
 };
+
+// export const getAllObjectsForAddress = async (req, res) => {
+//   const addressId = req.params.id;
+
+//   try {
+//     const objects = await ObjectModel.find({ address: addressId });
+//     res.json(objects);
+// } catch (error) {
+//     console.error('Error getting objects for address:', error);
+//     res.status(500).json({ message: 'Server error' });
+// }
+// };

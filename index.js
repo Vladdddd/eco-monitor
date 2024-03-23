@@ -29,6 +29,8 @@ app.get("/objects/:id", ObjectController.getOne);
 app.get("/indicators/:id", IndicatorController.getOne);
 
 app.patch("/indicators/:id", IndicatorController.update);
+//app.get("/addresses/:id/objects", ObjectController.getAllObjectsForAddress);
+
 
 app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
