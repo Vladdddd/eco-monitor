@@ -28,9 +28,15 @@ app.get("/addresses/:id", AddressController.getOne);
 app.get("/objects/:id", ObjectController.getOne);
 app.get("/indicators/:id", IndicatorController.getOne);
 
+app.patch("/types/:id", TypeController.update);
+app.patch("/addresses/:id", AddressController.update);
+app.patch("/objects/:id", ObjectController.update);
 app.patch("/indicators/:id", IndicatorController.update);
-//app.get("/addresses/:id/objects", ObjectController.getAllObjectsForAddress);
 
+app.delete("/types/:id", TypeController.remove);
+app.delete("/addresses/:id", AddressController.remove);
+app.delete("/objects/:id", ObjectController.remove);
+app.delete("/indicators/:id", IndicatorController.remove);
 
 app.listen(process.env.PORT || 4444, (err) => {
   if (err) {

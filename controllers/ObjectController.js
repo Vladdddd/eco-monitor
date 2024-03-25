@@ -32,7 +32,7 @@ export const create = async (req, res) => {
   try {
     const doc = new ObjectModel({
       name: req.body.name,
-	    address: req.body.addressId
+	  address: req.body.addressId
     });
 
     const object = await doc.save();
@@ -51,14 +51,45 @@ export const create = async (req, res) => {
   }
 };
 
-// export const getAllObjectsForAddress = async (req, res) => {
-//   const addressId = req.params.id;
+export const update = async (req, res) => {
+  try {
+    const objectId = req.params.id;
 
-//   try {
-//     const objects = await ObjectModel.find({ address: addressId });
-//     res.json(objects);
-// } catch (error) {
-//     console.error('Error getting objects for address:', error);
-//     res.status(500).json({ message: 'Server error' });
-// }
-// };
+    await ObjectModel.updateOne(
+      {
+        _id: objectId,
+      },
+      {
+        name: req.body.name,
+      }
+    );
+
+    const object = await ObjectModel.findOne({
+      _id: objectId,
+    });
+    res.json(object);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: "Failed to update object",
+    });
+  }
+};
+
+export const remove = async (req, res) => {
+  try {
+    const objectId = req.params.id;
+
+    await ObjectModel.findOneAndDelete(
+      {
+        _id: objectId,
+      }
+    );
+    res.json("Object deleted!")
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      message: "Failed to remove object",
+    });
+  }
+};

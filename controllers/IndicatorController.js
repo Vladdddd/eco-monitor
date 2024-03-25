@@ -34,7 +34,7 @@ export const create = async (req, res) => {
       name: req.body.name,
       unit: req.body.unit,
       type: req.body.typeId,
-	    object: req.body.objectId
+	  object: req.body.objectId
     });
 
     const indicator = await doc.save();
@@ -69,12 +69,32 @@ export const update = async (req, res) => {
       }
     );
 
-    const indicator = await IndicatorModel.find().exec();
+    const indicator = await IndicatorModel.findOne({
+      _id: indId,
+    });
     res.json(indicator);
   } catch (err) {
     console.log(err);
     res.status(500).json({
       message: "Failed to update indicator",
+    });
+  }
+};
+
+export const remove = async (req, res) => {
+  try {
+    const indId = req.params.id;
+
+    await IndicatorModel.findOneAndDelete(
+      {
+        _id: indId,
+      }
+    );
+    res.json("Indicator deleted!")
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      message: "Failed to remove indicator",
     });
   }
 };
